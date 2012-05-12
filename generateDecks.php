@@ -31,12 +31,12 @@
 
 		$myvar = var_export( $resultArray, TRUE);
 
-		if (file_exists("Decks-Hash/$j") && $myvar == file_get_contents("Decks-Hash/$j"))
+		if (file_exists("../throwing-bones-contents/Decks-Hash/$j") && $myvar == file_get_contents("../throwing-bones-contents/Decks-Hash/$j"))
 			continue;
 
 		echo "$j \t";
 
-		$myFile = "Decks-Hash/$j";
+		$myFile = "../throwing-bones-contents/Decks-Hash/$j";
 		$fh = fopen($myFile, 'w');
 		fwrite($fh, $myvar);
 		fclose($fh);
@@ -62,7 +62,7 @@
 			mysql_query($queryToEmptyPositionTable);
 
 			$value = $resultArray[$i]["File"];
-			$src = imagecreatefrompng("newcards/$value.png");
+			$src = imagecreatefrompng("../throwing-bones-contents/newcards/$value.png");
 
 			imagealphablending( $src, true );
 			imagesavealpha( $src, true );
@@ -74,7 +74,7 @@
 			imagedestroy($src);
 		}
 
-		imagejpeg($imageResized, "Decks-a20/$j.jpg");
+		imagejpeg($imageResized, "../throwing-bones-contents/Decks-a20/$j.jpg");
 		imagedestroy($image);
 
 	}

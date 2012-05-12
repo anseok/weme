@@ -114,7 +114,7 @@ $HTMLBody .= <<<MSGDECK
 		</map>
 		<div id="mapArea$assertionid">
 			<a href="javascript:openDeck($assertionArray[$i]);" >
-				<img id="mapImage$assertionid" usemap="#navmap$i" textToBeDisplayed="$htmlText"  src="Decks-a20/$assertionArray[$i].jpg" alt="Assertion Deck" class="deck"/>
+				<img id="mapImage$assertionid" usemap="#navmap$i" textToBeDisplayed="$htmlText"  src="../throwing-bones-contents/Decks-a20/$assertionArray[$i].jpg" alt="Assertion Deck" class="deck"/>
 			</a>
 		</div>
 	</td>

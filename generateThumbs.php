@@ -43,7 +43,7 @@
 			mysql_query($queryToEmptyPositionTable);
 
 			$value = $resultArray[$i]["File"];
-			$src = imagecreatefrompng("newcards/$value.png");
+			$src = imagecreatefrompng("../throwing-bones-contents/newcards/$value.png");
 
 			imagealphablending( $src, true );
 			imagesavealpha( $src, true );
@@ -55,7 +55,7 @@
 			imagedestroy($src);
 		}
 
-		ImagePNG($imageResized, "Decks-a20/$j.png");
+		ImagePNG($imageResized, "../throwing-bones-contents/Decks-a20/$j.png");
 		imagedestroy($image);
 
 	}

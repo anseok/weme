@@ -18,7 +18,7 @@
 			$legendEventBody .= "</br><fieldset><legend>" . $rowItemsInDB->eventtype_classification . "</legend><table><tr>";
 			$j = 0;
 		}
-		$legendEventBody .= "<td $widthString ALIGN='center'><img src='thumbsroot/level10/" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->event_type . "</B></td>"; 
+		$legendEventBody .= "<td $widthString ALIGN='center'><img src='../throwing-bones-contents/thumbsroot/level10/" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->event_type . "</B></td>"; 
 		$j++;
 		if (($j % $numColumns) == 0) {
 			$legendEventBody .= "</tr><tr>";
@@ -34,14 +34,12 @@
 	$widthString = "width='140px'";
 	$currentClassification = "-1";
 	while  ($rowItemsInDB = mysql_fetch_object($resultForSearch)){
-		$legendPeopleBody .= "<td $widthString ALIGN='center'><img src='thumbsroot/level10/p" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->person_type . "</B></td>"; 
+		$legendPeopleBody .= "<td $widthString ALIGN='center'><img src='../throwing-bones-contents/thumbsroot/level10/p" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->person_type . "</B></td>"; 
 		$j++;
 		if (($j % $numColumns) == 0)
 			$legendPeopleBody .= "</tr><tr>";
 	}
 	$legendPeopleBody .= "</tr></table>";
-
-
 
 
 	$queryForSearch	 = "SELECT * FROM data_magicalbeingtype ORDER BY magicalbeing_type ASC";
@@ -51,7 +49,7 @@
 	$widthString = "width='140px'";
 	$currentClassification = "-1";
 	while  ($rowItemsInDB = mysql_fetch_object($resultForSearch)){
-		$legendPreternaturalBody .= "<td $widthString ALIGN='center'><img src='thumbsroot/level10/d" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->magicalbeing_type . "</B></td>"; 
+		$legendPreternaturalBody .= "<td $widthString ALIGN='center'><img src='../throwing-bones-contents/thumbsroot/level10/d" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->magicalbeing_type . "</B></td>"; 
 		$j++;
 		if (($j % $numColumns) == 0) 
 			$legendPreternaturalBody .= "</tr><tr>";
@@ -68,7 +66,7 @@
 	$widthString = "width='140px'";
 	$currentClassification = "-1";
 	while  ($rowItemsInDB = mysql_fetch_object($resultForSearch)){
-		$legendOtherBody .= "<td $widthString ALIGN='center' valign='top'><img src='thumbsroot/level10/l" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->shorttitle . "</B></td>"; 
+		$legendOtherBody .= "<td $widthString ALIGN='center' valign='top'><img src='../throwing-bones-contents/thumbsroot/level10/l" . $rowItemsInDB->id . ".png'/><BR><B>" . $rowItemsInDB->shorttitle . "</B></td>"; 
 		$j++;
 		if (($j % $numColumns) == 0)
 			$legendOtherBody .= "</tr><tr>";
@@ -109,10 +107,10 @@
 			<fieldset><legend>Other</legend>
 				<table><tr>
 					<td width='140px' ALIGN='center'>
-						<img src='thumbsroot/level10/SC.png'/><BR><B>Textual Source</B></td>
+						<img src='../throwing-bones-contents/thumbsroot/level10/SC.png'/><BR><B>Textual Source</B></td>
 					</td>
 					<td width='140px' ALIGN='center'>
-						<img src='thumbsroot/level10/LB.png'/><BR><B>Location</B></td>
+						<img src='../throwing-bones-contents/thumbsroot/level10/LB.png'/><BR><B>Location</B></td>
 					</td>
 				</tr></table>
 			</fieldset>

@@ -127,24 +127,38 @@ var numOffiltertextthirdauthordiv = -1;
 var thisIsFirstTimeFiltersAreCalled = 1;
 var filtersDOM;
 
-function showFilters(){
+/*
 
-	if (thisIsFirstTimeFiltersAreCalled == 1){
-		thisIsFirstTimeFiltersAreCalled = 0;
-		var ajaxRequest;  	
-		try{
-			ajaxRequest = new XMLHttpRequest();
-		} catch (e){
-			try{
-				ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-			} catch (e) {
-				try{
-					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-				} catch (e){
-					alert("Browser Problem");
-					return false;
-				}
-			}
+var filters_are_initialized = 0;
+
+function showFilters(){
+  if (filters_are_initialized == 0)
+    $.get('gettopnav.html', function(data) {
+      $('#').html(data);
+      $('#legendDIV').fadeIn('slow');
+      filters_are_initialized = 1;
+    });
+  else
+    $('#legendDIV').fadeIn('slow');
+}
+
+function hideLegend(){
+  $('#legendDIV').fadeOut('slow');
+}
+
+var current_legend_item = 'legenddivevent';
+function highlightlegenddiv(clickedLink){
+
+  $('#' + current_legend_item).fadeOut('slow', function (){
+    $('#' + clickedLink).fadeIn('slow');
+    current_legend_item = clickedLink;
+  });
+}
+
+*/
+
+function showFilters(){
+/*
 		}
 
 		ajaxRequest.onreadystatechange = function(){
@@ -160,7 +174,7 @@ function showFilters(){
 
 	}
 	document.getElementById('filterDIV').style.visibility = ''; 
-	
+*/	
 }
 
 function hideFilter(){
@@ -694,68 +708,30 @@ function resetFilter(){
 ///////////////////////////////////////////////
 //////////////LEGEND///////////////////////////
 
-
-var thisIsFirstTimeLegendIsCalled = 1;
+var legend_is_initialized = 0;
 
 function openLegend(){
-
-	if (thisIsFirstTimeLegendIsCalled == 1){
-		thisIsFirstTimeLegendIsCalled = 0;
-		var ajaxRequest;  	
-		try{
-			ajaxRequest = new XMLHttpRequest();
-		} catch (e){
-			try{
-				ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-			} catch (e) {
-				try{
-					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-				} catch (e){
-					alert("Browser Problem");
-					return false;
-				}
-			}
-		}
-
-		ajaxRequest.onreadystatechange = function(){
-			if(ajaxRequest.readyState == 4)
-			{
-				document.getElementById('legendDIV').innerHTML = ajaxRequest.responseText;
-			}
-		}
-		ajaxRequest.open("GET", "getlegend.html" , true);
-		ajaxRequest.send(null); 		
-
-	}
-	document.getElementById('legendDIV').style.visibility = ''; 
-	
+  if (legend_is_initialized == 0)
+    $.get('getlegend.html', function(data) {
+      $('#legendDIV').html(data);
+      $('#legendDIV').fadeIn('slow');
+      legend_is_initialized = 1;
+    });
+  else
+    $('#legendDIV').fadeIn('slow');
 }
 
 function hideLegend(){
-	document.getElementById('legendDIV').style.visibility = 'hidden'; 
+  $('#legendDIV').fadeOut('slow');
 }
 
+var current_legend_item = 'legenddivevent';
 function highlightlegenddiv(clickedLink){
 
-	if (clickedLink == 'legenddivevent')
-		document.getElementById('legenddivevent').style.display = ''; 
-	else
-		document.getElementById('legenddivevent').style.display = 'none'; 
-
-	if (clickedLink == 'legenddivpeople')
-		document.getElementById('legenddivpeople').style.display = ''; 
-	else
-		document.getElementById('legenddivpeople').style.display = 'none'; 
-
-	if (clickedLink == 'legenddivpreternatural')
-		document.getElementById('legenddivpreternatural').style.display = ''; 
-	else
-		document.getElementById('legenddivpreternatural').style.display = 'none'; 
-
-	if (clickedLink == 'legenddivother')
-		document.getElementById('legenddivother').style.display = ''; 
-	else
-		document.getElementById('legenddivother').style.display = 'none'; 
+  $('#' + current_legend_item).fadeOut('slow', function (){  
+    $('#' + clickedLink).fadeIn('slow');
+    current_legend_item = clickedLink;
+  });
 }
 
 ///////////////////////////////////////////////
@@ -1431,7 +1407,7 @@ function openUpTheCard(assertionType, assertionID)
 		}
 	}
 
-	ajaxRequest.open("GET", "offlinecontent/" + assertionType + "-" + assertionID + ".xml" , true);
+	ajaxRequest.open("GET", "../throwing-bones-contents/offlinecontent/" + assertionType + "-" + assertionID + ".xml" , true);
 
 	ajaxRequest.send(null); 
 }
@@ -1485,11 +1461,11 @@ function loadContent(category, assertionid, picturefile){
 		}
 	}
 
-	ajaxRequest.open("GET", "offlinecontent/" + category + "-" +assertionid + ".xml" , true);
+	ajaxRequest.open("GET", "../throwing-bones-contents/offlinecontent/" + category + "-" +assertionid + ".xml" , true);
 	ajaxRequest.send(null); 
 
 	if (picturefile != "-1")
-		document.getElementById('myWaterMarkDiv').innerHTML = "<img border=\"none\" src=\"../throwing-bones/newcards/" + picturefile +".png\" />";
+		document.getElementById('myWaterMarkDiv').innerHTML = "<img border=\"none\" src=\"../throwing-bones-contents/newcards/" + picturefile +".png\" />";
 
 }
 
@@ -1925,8 +1901,8 @@ function initializePopUp() {
 
 	function drawAnchor(thisx, thisy, thisfilename, shadowcolor){
 		var img = new Image();
-		if (thisfilename.charAt(0) == 'd' || thisfilename.charAt(0) == 'p')	img.src = '../throwing-bones/thumbsroot/level' + zoomlevel + "/" + thisfilename;
-		else									img.src = '../throwing-bones/thumbsroot/level' + Math.max(zoomlevel-1,zoomUpperLimit) + "/" + thisfilename;
+		if (thisfilename.charAt(0) == 'd' || thisfilename.charAt(0) == 'p')	img.src = '../throwing-bones-contents/thumbsroot/level' + zoomlevel + "/" + thisfilename;
+		else									img.src = '../throwing-bones-contents/thumbsroot/level' + Math.max(zoomlevel-1,zoomUpperLimit) + "/" + thisfilename;
 		var zoomlevelAtTheTimeThisFunctionWasCalled = zoomlevel;				
 		img.onload = function(){
 			if (zoomlevelAtTheTimeThisFunctionWasCalled == zoomlevel){
@@ -1939,8 +1915,8 @@ function initializePopUp() {
 
 	function drawAnchorMini(thisx, thisy, thisfilename, shadowcolor){
 		var img = new Image();
-		if (thisfilename.charAt(0) == 'd' || thisfilename.charAt(0) == 'p')	img.src = '../throwing-bones/thumbsroot/level' + zoomlevelMini + "/" + thisfilename;
-		else									img.src = '../throwing-bones/thumbsroot/level' + Math.max(zoomlevelMini-1,zoomUpperLimit) + "/" + thisfilename;
+		if (thisfilename.charAt(0) == 'd' || thisfilename.charAt(0) == 'p')	img.src = '../throwing-bones-contents/thumbsroot/level' + zoomlevelMini + "/" + thisfilename;
+		else									img.src = '../throwing-bones-contents/thumbsroot/level' + Math.max(zoomlevelMini-1,zoomUpperLimit) + "/" + thisfilename;
 		img.onload = function(){miniatureContext.drawImage (img,transformPointMini(thisx) - this.height/2,transformPointMini(thisy) - this.height/2);}
 	}
 
@@ -2380,31 +2356,31 @@ function createMarker(point, name, address, type, eventtype, eventdate, eventtyp
 	var eventtypearray = eventtype.split('_');
 
 	var lineSize = 30;
-	var picturesHTML = "<td><center><img src='../throwing-bones/thumbsroot/level9/" + typenamearray[0] + ".png'></center></td>";
+	var picturesHTML = "<td><center><img src='../throwing-bones-contents/thumbsroot/level9/" + typenamearray[0] + ".png'></center></td>";
 	var eventHTML = "<td><center><B>Event Type 1<BR>" + eventtypearray[0] + "</B></center></td>";
 
 	if (typeof typenamearray[1] != 'undefined') {
-		picturesHTML += "<td><center><img src='../throwing-bones/thumbsroot/level9/" + typenamearray[1] + ".png'></center></td>";
+		picturesHTML += "<td><center><img src='../throwing-bones-contents/thumbsroot/level9/" + typenamearray[1] + ".png'></center></td>";
 		eventHTML += "<td><center><B>Event Type 2<BR>" + eventtypearray[1] + "</B></center></td>";
 		lineSize = 50;
 	}
 	if (typeof typenamearray[2] != 'undefined') {
-		picturesHTML += "<td><center><img src='../throwing-bones/thumbsroot/level9/" + typenamearray[2] + ".png'></center></td>";
+		picturesHTML += "<td><center><img src='../throwing-bones-contents/thumbsroot/level9/" + typenamearray[2] + ".png'></center></td>";
 		eventHTML += "<td><center><B>Event Type 3<BR>" + eventtypearray[2] + "</B></center></td>";
 		lineSize = 60;
 	}
 	if (typeof typenamearray[3] != 'undefined') {
-		picturesHTML += "<td><center><img src='../throwing-bones/thumbsroot/level9/" + typenamearray[3] + ".png'></center></td>";
+		picturesHTML += "<td><center><img src='../throwing-bones-contents/thumbsroot/level9/" + typenamearray[3] + ".png'></center></td>";
 		eventHTML += "<td><center><B>Event Type 4<BR>" + eventtypearray[3] + "</B></center></td>";
 		lineSize = 70;
 	}
 	if (typeof typenamearray[4] != 'undefined') {
-		picturesHTML += "<td><center><img src='../throwing-bones/thumbsroot/level9/" + typenamearray[4] + ".png'></center></td>";
+		picturesHTML += "<td><center><img src='../throwing-bones-contents/thumbsroot/level9/" + typenamearray[4] + ".png'></center></td>";
 		eventHTML += "<td><center><B>Event Type 5<BR>" + eventtypearray[4] + "</B></center></td>";
 		lineSize = 80;
 	}
 	if (typeof typenamearray[5] != 'undefined') {
-		picturesHTML += "<td><center><img src='../throwing-bones/thumbsroot/level9/" + typenamearray[5] + ".png'></center></td>";
+		picturesHTML += "<td><center><img src='../throwing-bones-contents/thumbsroot/level9/" + typenamearray[5] + ".png'></center></td>";
 		eventHTML += "<td><center><B>Event Type 6<BR>" + eventtypearray[5] + "</B></center></td>";
 		lineSize = 90;
 	}
@@ -2452,7 +2428,7 @@ function loadMappingContent(category, key){
 
 		}
 	}
-	ajaxRequest.open("GET", "offlinecontent/events-" +key + ".xml" , true);
+	ajaxRequest.open("GET", "../throwing-bones-contents/offlinecontent/events-" +key + ".xml" , true);
 	ajaxRequest.send(null); 
 }
 

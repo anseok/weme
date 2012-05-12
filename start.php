@@ -10,25 +10,23 @@
 <script src="http://maps.google.com/maps?file=api&v=2&key=<?php echo $mygooglekey;?>" type="text/javascript"></script>
 <link rel="stylesheet" href="css/floating-window.css" media="screen" type="text/css">
 
-
-
 <link href="wemestyle.css" rel="stylesheet" type="text/css" />
 
-	<link type="text/css" rel="stylesheet" media="all" href="jtip.css" />
-	<script src="jtip.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" media="all" href="jtip.css" />
+<script src="jtip.js" type="text/javascript"></script>
 
-	<link type="text/css" 		href="jquery/development-bundle/themes/base/jquery.ui.all.css" rel="stylesheet" /> 
-	<script type="text/javascript" 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script> 
-	<script type="text/javascript" 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script> 
+<link type="text/css" 		href="../throwing-bones-contents/jquery/development-bundle/themes/base/jquery.ui.all.css" rel="stylesheet" /> 
+<script type="text/javascript" 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script> 
+<script type="text/javascript" 	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script> 
 
 
-	<link rel="stylesheet" href="../brimstone/css/style.css" type="text/css" media="print, projection, screen" />
-  	<script type="text/javascript" src="../brimstone/js/jquery.tablesorter.min.js"></script>
+<link rel="stylesheet" href="../brimstone/css/style.css" type="text/css" media="print, projection, screen" />
+<script type="text/javascript" src="../brimstone/js/jquery.tablesorter.min.js"></script>
 
-	<script type="text/javascript" src="../brimstone/js/jquery.bgiframe-2.1.2.js"></script>
-	<script type="text/javascript" src="../brimstone/js/jquery-ui-i18n.min.js"></script>
+<script type="text/javascript" src="../brimstone/js/jquery.bgiframe-2.1.2.js"></script>
+<script type="text/javascript" src="../brimstone/js/jquery-ui-i18n.min.js"></script>
 
-	<script type="text/javascript" src="js/jquery.history.js"></script>
+<script type="text/javascript" src="js/jquery.history.js"></script>
 
 
 <script type="text/javascript"> 
@@ -97,15 +95,15 @@ var timelineValuesEnd = 1570;
 
 </head>
 <body onResize="bodyResized();" onunload="GUnload()">
-			<DIV id="header">
-					<H1>
-					<a href="javascript:window.parent.location.href='http://witching.org/'">Witches in Early Modern England</a></H1>
-					<H2><div id="throwingBonesReadingLeavesHeader">
-						<a href="javascript:switchToReadingLeaves('Fulltext');">Full Text</a>, 
-						<a href="javascript:switchToReadingLeaves('Mapping');">Mapping Witches</a>, 
-						<a href="javascript:switchToReadingLeaves('HTMLF');">Reading Leaves</a>, 
-						Throwing Bones</div></H2>
-			</DIV>
+  <DIV id="header">
+    <H1><a href="javascript:window.parent.location.href='http://witching.org/'">Witches in Early Modern England</a></H1>
+    <H2><div id="throwingBonesReadingLeavesHeader">
+	<a href="javascript:switchToReadingLeaves('Fulltext');">Full Text</a>, 
+	<a href="javascript:switchToReadingLeaves('Mapping');">Mapping Witches</a>, 
+	<a href="javascript:switchToReadingLeaves('HTMLF');">Reading Leaves</a>, 
+	Throwing Bones</div></H2>
+  </DIV>
+
 <table border=0 cellpadding=0 cellspacing=0>
 <tr valign=top><td>
 
@@ -192,8 +190,11 @@ var timelineValuesEnd = 1570;
 </tr>
 </table>
 
-<div id="filterDIV" style="position: absolute; top: 50px; left: 50px; width: 1000px; height: 800px; background: white; z-index: 5; visibility: hidden" class="shadow"></div>
-<div id="legendDIV" style="position: absolute; top: 50px; left: 50px; width: 1000px; height: 800px; background: white; z-index: 5; visibility: hidden" class="shadow"></div>
+<div id="filterDIV" style="position: absolute; top: 50px; left: 50px; width: 1000px; height: 800px; background: white; z-index: 5;display: none" class="shadow"></div>
+<div id="legendDIV" style="position: absolute; top: 50px; left: 50px; width: 1000px; height: 800px; background: white; z-index: 5;display: none" class="shadow"></div>
+
+
+
 
 <div id="boxes">
 <div id="dialog2" class="window">
@@ -210,13 +211,6 @@ Please enter your email address in the box below, if you wish to recieve an emai
 </div>
   <div id="mask"></div>
 </div>
-
-<script src="http://witching.org/modules/google_analytics/googleanalytics.js?6" type="text/javascript"></script>
-<script type="text/javascript">
-<!--//--><![CDATA[//><!--
-var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-603868-7"]);_gaq.push(["_setVar", "authenticated user"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = "/sites/witching.org/files/googleanalytics/ga.js?6";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
-//--><!]]>
-//</script>
 
 </body>
 </html>
